@@ -14,18 +14,33 @@ Configuratie ESPHome pentru MOES S16Pro (BK7231N + MCU Tuya), folosit ca telecom
 
 Hostname-ul ramane `moes-s16pro`; numele afisat devine **MOES Tesla**, iar climatizarea **Tesla AC**. Componenta si automatizarile Toshiba au fost eliminate.
 
-## Starea verificarilor — 20 octombrie 2026
+## Starea verificarilor — 21 octombrie 2026
 
 | Element | Stare |
 |---|---|
 | MOES transmite IR catre Tesla | Confirmat de utilizator |
-| HEAT 24°C / AUTO | Testat cu succes pe AC folosind butonul Pronto anterior |
-| OFF | Testat cu succes pe AC folosind butonul Pronto anterior |
-| HEAT 22, 23, 25, 26, 27, 28°C / AUTO | Capturat si verificat structural; testarea pe AC este in asteptare |
-| Configuratia integrata din acest repository | Pregatita; validarea ESPHome, compilarea si testarea integrata sunt in asteptare |
-| Controlul de pe touchscreen si din HA cu noul YAML | In asteptarea testelor pe dispozitiv |
+| HEAT 24°C / AUTO si OFF prin butoanele Pronto | Testate anterior cu succes pe AC |
+| Compilare si instalare firmware integrat | Reusite cu ESPHome 2026.9.1; firmware.uf2 incarcat, OTA successful |
+| Integrare ESPHome si entitatea Tesla AC in HA | Apar corect; utilizatorul confirma ca le foloseste |
+| Pornire / oprire de la distanta | Confirmate indirect prin consumul prizei; aproximativ 705,89 W in functionare, apoi scadere dupa OFF |
+| Comanda din Tesla AC in HA | Utilizatorul confirma functionarea dupa testul de incalzire solicitat |
+| Setpoint-urile 22, 23, 25, 26, 27, 28°C, fiecare separat | Capturate si verificate structural; nu exista confirmare individuala pentru fiecare temperatura |
+| Temperatura exacta afisata pe AC si viteza ventilatorului | Neverificate fizic dupa instalarea integrata |
+| Controlul de pe touchscreen | In asteptarea testelor langa dispozitiv |
 
-Fiecare captura contine 106 perechi de impulsuri Pronto si un payload de 104 biti. Fisierul pastreaza timpii originali capturati, fara normalizare sau modificarea checksum-ului. Lungimea si payload-urile au fost verificate la pregatire; aceasta verificare NU inlocuieste compilarea ESPHome.
+Testele de la distanta confirma indirect functionarea prin consumul prizei. Ele nu demonstreaza temperatura exacta acceptata de AC, viteza ventilatorului sau corectitudinea tuturor setpoint-urilor. Nu a fost demonstrat pe ce masina s-a executat compilarea.
+
+Fiecare captura contine 106 perechi de impulsuri Pronto si un payload de 104 biti. Fisierul pastreaza timpii originali capturati, fara normalizare sau modificarea checksum-ului.
+
+## Control din Home Assistant
+
+Dupa adaugarea MOES prin integrarea **ESPHome**, deschide dispozitivul **MOES Tesla** si entitatea **Tesla AC**. Selecteaza **HEAT / Incalzire**, apoi temperatura intre **22 si 28°C**, in pasi de **1°C**. Pentru acces rapid, adauga un card **Termostat** pe dashboard.
+
+Entitatea Tesla AC este calea pentru controlul temperaturii si pentru automatizari. Butoanele **Tesla Incalzire 24 Auto** si **Tesla Oprire** trimit comenzile IR de test direct si nu actualizeaza starea display-ului.
+
+Prezenta dispozitivului in **ESPHome Device Builder** nu inlocuieste adaugarea lui prin integrarea ESPHome din Home Assistant. In instalarea utilizatorului, aceasta integrare este deja adaugata si folosita.
+
+Pentru automatizari, foloseste identificatorul real al entitatii din instalatia ta; numele de afisare nu garanteaza un anumit entity_id. Logica solara si migrarea comenzilor din Broadlink sunt configuratii separate de acest firmware; starea lor nu este validata de testele descrise aici.
 
 ## Comportament disponibil
 

@@ -3,7 +3,7 @@
   "ac_model": "TESLA TA36FFML-1232IAPC",
   "date": "2026-10-20",
   "timings": "Original Pronto timings preserved",
-  "firmware_integration_tested": false,
+  "firmware_integration_tested": true,
   "frames": {
     "22": {
       "mode": "HEAT",
@@ -77,5 +77,25 @@
       "payload_hex_msb": "c3e1070005000100000000a0f2",
       "pronto": "0000 006D 006A 0000 0156 00B2 0014 0043 0015 0042 0019 0014 0015 0018 0015 0016 0015 0018 0015 0041 0017 0043 0015 0043 0013 0043 0015 0043 0013 0019 0012 001A 0013 0019 0012 001A 0012 0044 0013 0019 0014 0019 0012 001A 0013 0019 0012 001A 0012 0043 0016 0042 0016 0042 0016 0018 0014 0019 0014 0018 0013 0019 0014 0019 0014 0018 0014 0018 0015 0019 0014 0018 0014 0019 0013 0018 0014 0019 0014 0019 0014 0043 0014 0018 0015 0043 0015 0019 0014 0018 0014 0019 0014 0018 0014 0019 0014 0019 0013 0018 0014 0019 0014 0019 0014 0018 0013 0019 0014 0018 0014 0019 0013 0019 0014 0018 0014 0044 0014 0019 0014 0018 0014 0019 0013 0019 0014 0018 0014 0019 0014 0019 0014 0018 0014 0019 0014 0018 0014 001A 0012 0019 0014 0018 0013 0019 0014 0019 0014 0017 0014 0019 0014 0018 0014 0019 0014 0019 0013 0017 0014 0019 0014 0019 0014 0018 0014 0019 0014 0018 0015 0018 0014 0019 0014 0018 0014 0019 0014 0019 0014 0019 0014 0043 0013 0019 0014 0044 0013 0018 0014 0019 0014 0019 0014 0019 0014 0017 0014 0044 0013 0044 0014 0044 0014 0044 0014 0017 0014 0019 0014 0043 0015 0019 0014 0302"
     }
+  },
+  "integration_validation": {
+    "updated": "2026-10-21",
+    "evidence_source": "User-provided OTA log and user-confirmed Home Assistant use",
+    "esphome_version": "2026.9.1",
+    "compilation_successful": true,
+    "ota_successful": true,
+    "artifact_format": "UF2",
+    "uploaded_bytes": 2126336,
+    "home_assistant_integration_in_use": true,
+    "remote_on_off_confirmed_indirectly_by_power": true,
+    "observed_running_power_w": 705.89,
+    "power_dropped_after_off": true,
+    "user_confirmed_climate_entity_control": true,
+    "individual_setpoints_all_verified": false,
+    "exact_ac_display_temperature_verified": false,
+    "physical_touchscreen_verified": false,
+    "build_execution_host_verified": false,
+    "solar_automations_verified": false,
+    "notes": "Power confirms operation indirectly, not exact AC setpoint or fan speed. Existing per-frame tested_on_ac flags reflect individually tested captures and are unchanged."
   }
 }
